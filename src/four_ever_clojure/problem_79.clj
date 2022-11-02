@@ -12,3 +12,12 @@
         (get-in triangle [row-idx col-idx]))
      (get-in triangle [row-idx col-idx] 0))))
 
+
+(defn solve
+  "Best solution from teh interwebz - so concise :/"
+  [t]
+  (prn t)
+  (if (first t)
+    (+ (ffirst t) (min (solve (map rest (rest t)))
+                       (solve (map butlast (rest t)))))
+    0))
